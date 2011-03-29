@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Comette - just cometd test app</title>
+<!-- Framework CSS -->  
+    <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection" />  
+    <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />  
+    <!--[if IE]><link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->  
+<!-- Cometd -->
+    
+    <script type="text/javascript" src="js/cometd/cometd.js"></script>
+    <script type="text/javascript" src="js/cometd/ext/TimeSyncExtension.js"></script>    
+    
+<!-- JQuery + Plugins -->
+    
+    <script type="text/javascript" src="js/jquery/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.json-2.2.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery.inherit-1.0.9.js"></script>
+    
+<!-- JQuery Cometd Plugins -->    
+
+    <script type="text/javascript" src="js/jquery/jquery.cometd.js"></script>    
+    <script type="text/javascript" src="js/jquery/jquery.cometd-timesync.js"></script> 
+</head>
+<body>
+<div class="container">
+
+	<div id="header" class="span-20 last">
+    	<h1>Hello, user!</h1>
+    </div>
+
+    <hr />
+    
+    <div id="subheader" class="span-20 last">
+    	<h3 class="alt">Test project for ajax</h3>
+    </div>
+    
+	<hr />
+	
+	<div id="content" class="span-20 last" >
+	<p>
+		<button id="ajax_button" >Click</button>
+		<span id="ajax_result" ></span>
+	</p>
+	</div>
+<!-- JS  -->
+<script type="text/javascript" charset="utf-8" >
+// AJAX запрос к сервлету Dinner.
+	$('#ajax_button').click(function() {
+		var url = "/comette/dinner";
+		$('#ajax_result').html("Working...");
+		$.ajax({
+			type: "GET",
+			url: url,
+			dataType: "html",
+			success: function(msg) {
+				$('#ajax_result').html(msg);
+			}	
+		});
+	});
+</script>
+</div>
+</body>
+</html>
