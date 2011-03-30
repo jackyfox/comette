@@ -22,7 +22,11 @@
 <!-- JQuery Cometd Plugins -->    
 
     <script type="text/javascript" src="js/jquery/jquery.cometd.js"></script>    
-    <script type="text/javascript" src="js/jquery/jquery.cometd-timesync.js"></script> 
+    <script type="text/javascript" src="js/jquery/jquery.cometd-timesync.js"></script>
+
+<!-- Comette's library -->    
+
+    <script type="text/javascript" src="js/comette/comette.js"></script> 
 </head>
 <body>
 <div class="container">
@@ -34,33 +38,26 @@
     <hr />
     
     <div id="subheader" class="span-20 last">
-    	<h3 class="alt">Test project for ajax</h3>
+    	<h3 class="alt">Test project for ajax and cometd</h3>
     </div>
     
 	<hr />
 	
 	<div id="content" class="span-20 last" >
-	<p>
+	<h3>It's time</h3>
+	<fieldset>
+		<p>
+		<span id="ajax_result" >Ajax result should placed here</span>
+		</p>
+		<p>
 		<button id="ajax_button" >Click</button>
-		<span id="ajax_result" ></span>
+		</p>
+	</fieldset>
+	<h3>Random process</h3>
+	<p>
+		There will be a some graph.
 	</p>
 	</div>
-<!-- JS  -->
-<script type="text/javascript" charset="utf-8" >
-// AJAX запрос к сервлету Dinner.
-	$('#ajax_button').click(function() {
-		var url = "/comette/dinner";
-		$('#ajax_result').html("Working...");
-		$.ajax({
-			type: "GET",
-			url: url,
-			dataType: "html",
-			success: function(msg) {
-				$('#ajax_result').html(msg);
-			}	
-		});
-	});
-</script>
 </div>
 </body>
 </html>
